@@ -101,14 +101,7 @@ public class EnemyController : MonoBehaviour
             {
                 if (enemyType == EnemyType.Melee)
                 {
-                    if (Vector3.Distance(transform.position, player.transform.position) <= meleeRange)
-                    {
-                        currentState = EnemyState.Attack;
-                    }
-                    else
-                    {
-                        currentState = EnemyState.Follow;
-                    }
+                    currentState = EnemyState.Follow;
                 }
                 else if (enemyType == EnemyType.Ranged)
                 {
@@ -193,23 +186,13 @@ public class EnemyController : MonoBehaviour
     void Attack()
     {
         if (!coolDownAttack)
-        {
-            switch (enemyType)
-            {
-                case (EnemyType.Melee):
-                   // GameController.DamagePlayer(damage);
-                    StartCoroutine(CoolDown());
-                    break;
-                case (EnemyType.Ranged):
-                    GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;
-                    bullet.GetComponent<BulletController>().GetPlayer(player.transform);
-                    //bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
-                    bullet.GetComponent<BulletController>().isEnemyBullet = true;
-                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                    rb.AddForce(cannon.up * bulletForce, ForceMode2D.Impulse);
-                    StartCoroutine(CoolDown());
-                    break;
-            }
+        {   
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;
+            bullet.GetComponent<BulletController>().GetPlayer(player.transform);
+            bullet.GetComponent<BulletController>().isEnemyBullet = true;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(cannon.up * bulletForce, ForceMode2D.Impulse);
+            StartCoroutine(CoolDown());
         }
     }
 

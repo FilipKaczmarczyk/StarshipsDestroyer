@@ -9,6 +9,10 @@ public class GameController : MonoBehaviour
 
     public static GameController instance;
 
+    protected SpriteRenderer sr;
+
+    protected Color dColor;
+
     private static float health = 10.0f;
     private static float maxHealth = 10.0f;
     private static float moveSpeed = 5f;
@@ -27,6 +31,10 @@ public class GameController : MonoBehaviour
         {
             instance = this;
         }
+
+        GameObject go = GameObject.FindWithTag("Player");
+        sr = go.GetComponent<SpriteRenderer>();
+        dColor = sr.color;
     }
 
     // Update is called once per frame
@@ -43,8 +51,21 @@ public class GameController : MonoBehaviour
         {
             KillPlayer();
         }
+        else
+        {
+            instance.CancelInvoke(nameof(ResetColor));
+            instance.sr.color = Color.red;
+            instance.Invoke(nameof(ResetColor), 0.05f);
+        }
 
     }
+
+    private void ResetColor()
+    {
+        sr.color = dColor;
+    }
+
+
 
     public static void HealPlayer(float healAmount)
     {
