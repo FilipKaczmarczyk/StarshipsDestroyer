@@ -23,12 +23,15 @@ public enum EnemyType
     Ranged
 };
 
+[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Explodable))]
 public class EnemyController : MonoBehaviour
 {
     GameObject player;
 
-    public Transform cannon;
+    AudioSource laserAudioData;
+
+    public Transform[] cannon;
 
     public EnemyState currentState = EnemyState.Idle;
     public EnemyType enemyType;
@@ -68,6 +71,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        laserAudioData = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         _explodable = GetComponent<Explodable>();
     }
@@ -187,12 +191,16 @@ public class EnemyController : MonoBehaviour
     {
         if (!coolDownAttack)
         {   
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;
-            bullet.GetComponent<BulletController>().GetPlayer(player.transform);
-            bullet.GetComponent<BulletController>().isEnemyBullet = true;
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(cannon.up * bulletForce, ForceMode2D.Impulse);
-            StartCoroutine(CoolDown());
+            foreach(Transform cann in cannon)
+            {
+                GameObject bullet = Instantiate(bulletPrefab, cann.position, Quaternion.identity) as GameObject;
+                bullet.GetComponent<BulletController>().GetPlayer(player.transform);
+                bullet.GetComponent<BulletController>().isEnemyBullet = true;
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.AddForce(cann.up * bulletForce, ForceMode2D.Impulse);
+                StartCoroutine(CoolDown());
+            }
+            laserAudioData.Play(0);
         }
     }
 

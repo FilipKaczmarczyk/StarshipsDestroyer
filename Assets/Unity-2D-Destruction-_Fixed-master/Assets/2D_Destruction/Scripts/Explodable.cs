@@ -50,6 +50,7 @@ public class Explodable : MonoBehaviour
                     var sRend = GetComponent<SpriteRenderer>();
                     mRend.sharedMaterial = sRend.sharedMaterial;
                     mRend.sharedMaterial.SetTexture("_MainTex", sRend.sprite.texture);
+                    mRend.material.color = new Color(1f, 1f, 1f, 1f);
                 }
                 frag.SetActive(true);
             }
