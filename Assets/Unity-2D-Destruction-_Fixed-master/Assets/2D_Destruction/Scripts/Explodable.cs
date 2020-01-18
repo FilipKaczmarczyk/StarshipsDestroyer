@@ -71,7 +71,7 @@ public class Explodable : MonoBehaviour
         {
             float ai = i;
             float a = 1-(ai/40);
-            Debug.Log(a);
+           // Debug.Log(a);
             mrend.material.color = new Color(1f, 1f, 1f, a);
             yield return new WaitForSeconds(0.05f);
         }

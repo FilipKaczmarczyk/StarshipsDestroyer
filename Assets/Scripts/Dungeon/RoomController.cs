@@ -35,6 +35,8 @@ public class RoomController : MonoBehaviour
 
     public Camera camera;
 
+    public GameObject canvas;
+
 
     void Awake()
     {
@@ -95,6 +97,8 @@ public class RoomController : MonoBehaviour
             var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
             loadedRooms.Remove(roomToRemove);
             LoadRoom("End", tempRoom.X, tempRoom.Y);
+
+            canvas.SetActive(true);
             camera.gameObject.SetActive(true);
         }
     }
@@ -199,7 +203,7 @@ public class RoomController : MonoBehaviour
                     foreach (EnemyController enemy in enemies)
                     { 
                         enemy.notInRoom = true;
-                        Debug.Log("Not in room");
+                       // Debug.Log("Not in room");
                     }
 
                     foreach (Door door in room.GetComponentsInChildren<Door>())
@@ -234,7 +238,7 @@ public class RoomController : MonoBehaviour
                     foreach (EnemyController enemy in enemies)
                     {
                         enemy.notInRoom = false;
-                        Debug.Log("In room");
+                       // Debug.Log("In room");
                     }
 
                     foreach (Door door in room.GetComponentsInChildren<Door>())

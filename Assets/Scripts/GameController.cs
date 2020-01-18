@@ -17,11 +17,13 @@ public class GameController : MonoBehaviour
     private static float maxHealth = 10.0f;
     private static float moveSpeed = 5f;
     private static float fireRate = 0.5f;
+    private static int cannonsCount = 1;
 
     public static float Health { get => health; set => health = value ; }
     public static float MaxHealth { get => maxHealth; set => maxHealth = value; }
     public static float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public static float FireRate { get => fireRate; set => fireRate = value; }
+    public static int CannonsCount { get => cannonsCount; set => cannonsCount = value; }
 
     public Text healthText;
 
@@ -41,6 +43,8 @@ public class GameController : MonoBehaviour
     void Update()
     {
         healthText.text = "Health " + health;
+        Debug.Log(fireRate);
+        Debug.Log(CannonsCount);
     }
 
     public static void DamagePlayer(int damage)
@@ -79,7 +83,21 @@ public class GameController : MonoBehaviour
 
     public static void AttackSpeedChange(float speed)
     {
-        fireRate -= speed;
+
+        if (fireRate < 0.2f)
+        {
+            if (cannonsCount <= 3)
+            {
+                fireRate = 0.5f;
+                cannonsCount += 1;
+            }
+           
+        }
+        else
+        {
+            fireRate -= speed;
+        }
+        
     }
 
 
@@ -89,6 +107,7 @@ public class GameController : MonoBehaviour
         maxHealth = 10.0f;
         moveSpeed = 5f;
         fireRate = 0.5f;
+        cannonsCount = 1;
         PlayerController.currentLevel = 0;
         DungeonCrawlerController.positionVisited.Clear();
         SceneManager.LoadScene("LevelMain"); 

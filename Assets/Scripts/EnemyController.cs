@@ -155,7 +155,11 @@ public class EnemyController : MonoBehaviour
 
     private void ResetColor()
     {
-        sr.color = dColor;
+        if (sr)
+        {
+            sr.color = dColor;
+        }
+
     }
 
     void Afk()

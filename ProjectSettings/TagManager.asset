@@ -7,6 +7,12 @@ TagManager:
   - Enemy
   - Environment
   - EnemyPiece
+  - ExplosionFX
+  - Bullet
+  - ground
+  - Obstacle
+  - BombPickup
+  - HealthBar
   layers:
   - Default
   - TransparentFX
@@ -41,6 +47,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BehindBehind
+    uniqueID: 1410623265
+    locked: 0
   - name: Behind
     uniqueID: 285302871
     locked: 0

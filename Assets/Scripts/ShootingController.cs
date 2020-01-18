@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
-    public Transform cannon;
+    public Transform[] cannon;
 
     public GameObject bulletPrefab;
 
@@ -36,9 +36,14 @@ public class ShootingController : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, cannon.position, cannon.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(cannon.up * bulletForce, ForceMode2D.Impulse);
+       for(int i = 0; i < GameController.CannonsCount; i++)
+       {
+            GameObject bullet = Instantiate(bulletPrefab, cannon[i].position, cannon[i].rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(cannon[i].up * bulletForce, ForceMode2D.Impulse);
+       }
+
     }
+       
 
 }
