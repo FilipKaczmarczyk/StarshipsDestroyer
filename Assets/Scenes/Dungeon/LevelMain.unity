@@ -211,7 +211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &105693015
 AudioListener:
   m_ObjectHideFlags: 0
@@ -470,7 +470,7 @@ Transform:
   m_LocalScale: {x: 30.244497, y: 29.900293, z: 5}
   m_Children: []
   m_Father: {fileID: 1395264486}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &293657423
 SpriteRenderer:
@@ -612,7 +612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451981122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.834, y: 0.513, z: 0.007364154}
+  m_LocalPosition: {x: -0.72, y: 0.64, z: 0.007364154}
   m_LocalScale: {x: 2, y: 1.6666663, z: 1}
   m_Children: []
   m_Father: {fileID: 1395264486}
@@ -636,7 +636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &522000666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,6 +752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadedRooms: []
   camera: {fileID: 105693016}
+  canvas: {fileID: 522000665}
 --- !u!4 &633421724
 Transform:
   m_ObjectHideFlags: 0
@@ -804,7 +805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991172936}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.714, y: 0.509, z: 0.007364154}
+  m_LocalPosition: {x: 0.7, y: 0.62, z: 0.007364154}
   m_LocalScale: {x: 2, y: 1.6666665, z: 1}
   m_Children: []
   m_Father: {fileID: 1395264486}
@@ -1019,6 +1020,8 @@ Transform:
   m_Children:
   - {fileID: 991172937}
   - {fileID: 451981123}
+  - {fileID: 1616843874}
+  - {fileID: 2014268110}
   - {fileID: 293657422}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1035,7 +1038,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f79d1221c48c4345ab974954e64ca29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannon: {fileID: 991172937}
+  cannon:
+  - {fileID: 991172937}
+  - {fileID: 451981123}
+  - {fileID: 1616843874}
+  - {fileID: 2014268110}
   bulletPrefab: {fileID: 990243224804722897, guid: 8e5bc901c385ac74f9e3eaa0b7bf662a,
     type: 3}
   bulletForce: 7
@@ -1450,7 +1457,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1419637382}
   - component: {fileID: 1419637385}
-  - component: {fileID: 1419637384}
   m_Layer: 0
   m_Name: MinimapCamera
   m_TagString: Untagged
@@ -1472,14 +1478,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1419637384
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419637381}
-  m_Enabled: 1
 --- !u!20 &1419637385
 Camera:
   m_ObjectHideFlags: 0
@@ -1507,7 +1505,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 90
+  orthographic size: 100
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1608,6 +1606,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1616843873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1616843874}
+  m_Layer: 0
+  m_Name: Cannon (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1616843874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616843873}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.69, y: -0.58, z: 0.007364154}
+  m_LocalScale: {x: 2, y: 1.6666663, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1395264486}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1631726467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,6 +1815,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2014268109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2014268110}
+  m_Layer: 0
+  m_Name: Cannon (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2014268110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014268109}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.69, y: -0.58, z: 0.007364154}
+  m_LocalScale: {x: 2, y: 1.6666663, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1395264486}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2086783030
 GameObject:
