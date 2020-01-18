@@ -50,7 +50,7 @@ public class Explodable : MonoBehaviour
                     var sRend = GetComponent<SpriteRenderer>();
                     mRend.sharedMaterial = sRend.sharedMaterial;
                     mRend.sharedMaterial.SetTexture("_MainTex", sRend.sprite.texture);
-                    mRend.material.color = new Color(1f, 1f, 1f, 1f);
+                    StartCoroutine(Transparency(mRend));
                 }
                 frag.SetActive(true);
             }
@@ -63,6 +63,17 @@ public class Explodable : MonoBehaviour
             
             Destroy(renderer);
             Destroy(colider);
+        }
+    }
+    private IEnumerator Transparency(MeshRenderer mrend)
+    {
+        for(int i = 0; i< 40; i++)
+        {
+            float ai = i;
+            float a = 1-(ai/40);
+            Debug.Log(a);
+            mrend.material.color = new Color(1f, 1f, 1f, a);
+            yield return new WaitForSeconds(0.05f);
         }
     }
     /// <summary>
