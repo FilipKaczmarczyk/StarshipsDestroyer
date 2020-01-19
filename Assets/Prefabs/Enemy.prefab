@@ -3646,9 +3646,11 @@ MonoBehaviour:
   meleeRange: 0.82
   damage: 1
   explosionDamage: 1
+  aimed: 0
   health: 10
   bulletForce: 5
   notInRoom: 1
+  points: 1
   bulletPrefab: {fileID: 3733137346237469793, guid: 7525ff650cdc5874e8e42030dc9191ed,
     type: 3}
   pc: {fileID: 7869196897347116038}
@@ -3743,7 +3745,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6678e27ffd1843b49a830a197c3c3f97, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
