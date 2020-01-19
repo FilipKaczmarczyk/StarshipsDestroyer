@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour
 
     public Text healthText;
 
+    public GameObject gameOverPanel;
+
     void Awake()
     {
         if(instance == null)
@@ -53,8 +55,7 @@ public class GameController : MonoBehaviour
 
         if(health <= 0)
         {
-            Destroy(instance.gameObject);
-            //KillPlayer();
+            GameOver();
         }
         else
         {
@@ -101,8 +102,13 @@ public class GameController : MonoBehaviour
         
     }
 
+    public static void GameOver()
+    {
+        Destroy(instance.gameObject);
+        instance.gameOverPanel.SetActive(true);
+    }
 
-    public static void KillPlayer()
+    public static void RestartGame()
     {
         health = 10.0f;
         maxHealth = 10.0f;
