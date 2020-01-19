@@ -259,7 +259,7 @@ public class RoomController : MonoBehaviour
                     }
                     else
                     {
-                        room.minimap.GetComponent<SpriteRenderer>().color = Color.blue;
+                        //room.minimap.GetComponent<SpriteRenderer>().color = Color.blue;
                     }
 
                     foreach (Door door in room.GetComponentsInChildren<Door>())
