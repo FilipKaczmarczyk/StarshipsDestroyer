@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 589046907}
   - component: {fileID: 589046906}
   - component: {fileID: 589046908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftWall
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 785905080}
   - component: {fileID: 785905082}
   - component: {fileID: 785905081}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DownWall
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -1223,7 +1223,7 @@ GameObject:
   - component: {fileID: 1353850939}
   - component: {fileID: 1353850941}
   - component: {fileID: 1353850940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightWall
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -1541,7 +1541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1803655030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SideWalls
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -1674,7 +1674,7 @@ GameObject:
   - component: {fileID: 2144259414}
   - component: {fileID: 2144259416}
   - component: {fileID: 2144259415}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: UpWall
   m_TagString: Environment
   m_Icon: {fileID: 0}
