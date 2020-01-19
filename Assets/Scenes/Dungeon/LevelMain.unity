@@ -964,6 +964,7 @@ GameObject:
   - component: {fileID: 1395264489}
   - component: {fileID: 1395264488}
   - component: {fileID: 1395264491}
+  - component: {fileID: 1395264492}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1544,6 +1545,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1395264492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395264483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8722d13c489cade42a78de19704034dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 142003235}
 --- !u!1 &1419637381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,27 +1892,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1925907620}
-  - component: {fileID: 1925907619}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1925907619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925907618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8722d13c489cade42a78de19704034dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthText: {fileID: 142003235}
+  m_IsActive: 0
 --- !u!4 &1925907620
 Transform:
   m_ObjectHideFlags: 0

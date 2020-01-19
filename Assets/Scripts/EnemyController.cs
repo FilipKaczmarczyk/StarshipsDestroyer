@@ -53,6 +53,8 @@ public class EnemyController : MonoBehaviour
 
     public bool notInRoom = true;
 
+    public int point = 1;
+
     bool firstAttack = true;
 
     public GameObject bulletPrefab;
@@ -105,7 +107,7 @@ public class EnemyController : MonoBehaviour
         }
         if (health > 0)
         {
-            if (!notInRoom)
+            if (!notInRoom && player != null)
             {
                 if (enemyType == EnemyType.Melee)
                 {
@@ -173,24 +175,26 @@ public class EnemyController : MonoBehaviour
 
     void Aim()
     {
-        aimed = true;
-        float rotationSpeed = 10f;
-        float offset = -90f;
-        Vector3 direction = player.transform.position - transform.position;
-        direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion rotation = Quaternion.AngleAxis(angle + offset, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-        if (!firstAttack)
+        if (player != null)
         {
-            Attack();
+            aimed = true;
+            float rotationSpeed = 10f;
+            float offset = -90f;
+            Vector3 direction = player.transform.position - transform.position;
+            direction.Normalize();
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.AngleAxis(angle + offset, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            if (!firstAttack)
+            {
+                Attack();
+            }
+            else
+            {
+                StartCoroutine(CoolDown());
+                firstAttack = false;
+            }
         }
-        else
-        {
-            StartCoroutine(CoolDown());
-            firstAttack = false;
-        }
-
     }
 
     void Follow()

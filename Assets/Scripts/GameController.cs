@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
     {
         healthText.text = "Health " + health;
         Debug.Log(fireRate);
-        Debug.Log(CannonsCount);
+        Debug.Log(CannonsCount); 
     }
 
     public static void DamagePlayer(int damage)
@@ -53,7 +53,8 @@ public class GameController : MonoBehaviour
 
         if(health <= 0)
         {
-            KillPlayer();
+            Destroy(instance.gameObject);
+            //KillPlayer();
         }
         else
         {
