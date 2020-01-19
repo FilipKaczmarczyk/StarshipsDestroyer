@@ -2192,7 +2192,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 399628646}
+        - m_Target: {fileID: 1622050376}
           m_MethodName: HoverSound
           m_Mode: 1
           m_Arguments:
@@ -2215,7 +2215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4436c73420cdf541b68e30745d5998d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 399628647}
+  audio: {fileID: 1622050377}
   hover: {fileID: 8300000, guid: ed78d5c634f14ff4085d9de5cc892882, type: 3}
 --- !u!82 &1622050377
 AudioSource:

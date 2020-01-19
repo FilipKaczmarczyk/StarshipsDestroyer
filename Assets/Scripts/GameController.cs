@@ -134,6 +134,11 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("LevelMain"); 
     }
 
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
 
 
