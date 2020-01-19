@@ -6222,7 +6222,7 @@ MonoBehaviour:
   damage: 2
   explosionDamage: 5
   aimed: 0
-  health: 10
+  health: 35
   bulletForce: 6
   notInRoom: 1
   points: 5

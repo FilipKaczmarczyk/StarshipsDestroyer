@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DungeonGenrationData
   m_EditorClassIdentifier: 
   numberOfCrawlers: 2
-  intertionsMin: 7
-  interationsMax: 15
+  intertionsMin: 5
+  interationsMax: 10

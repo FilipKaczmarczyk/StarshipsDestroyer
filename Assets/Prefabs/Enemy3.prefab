@@ -6707,7 +6707,7 @@ MonoBehaviour:
   damage: 3
   explosionDamage: 5
   aimed: 0
-  health: 10
+  health: 25
   bulletForce: 7
   notInRoom: 1
   points: 4

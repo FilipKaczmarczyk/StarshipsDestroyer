@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour
 
     private void ResetColor()
     {
-        if (instance)
+        if (sr != null)
         {
             sr.color = dColor;
         }

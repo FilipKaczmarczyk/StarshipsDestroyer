@@ -8,4 +8,5 @@ public class DungeonGenerationData : ScriptableObject
     public int intertionsMin;
 
     public int interationsMax;
+
 }
