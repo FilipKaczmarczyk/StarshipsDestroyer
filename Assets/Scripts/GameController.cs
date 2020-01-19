@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
+    public GameObject player;
+
     protected SpriteRenderer sr;
 
     protected Color dColor;
@@ -106,8 +108,13 @@ public class GameController : MonoBehaviour
 
     public static void GameOver()
     {
-        Destroy(instance.gameObject);
+        instance.KillPlayer();
         instance.gameOverPanel.SetActive(true);
+    }
+
+    public void KillPlayer()
+    {
+        Destroy(player);
     }
 
     public static void AddPoints(int p)
@@ -115,7 +122,7 @@ public class GameController : MonoBehaviour
         points += p;
     }
 
-    public static void RestartGame()
+    public void RestartGame()
     {
         health = 10.0f;
         maxHealth = 10.0f;

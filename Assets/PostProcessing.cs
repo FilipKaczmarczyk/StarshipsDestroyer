@@ -7,6 +7,10 @@ public class PostProcessing : MonoBehaviour
 {
     public PostProcessVolume volume;
 
+    public Gradient gradient;
+
+    public float strobeDuration = 2f;
+
     private Bloom bloom;
 
     void Start()
@@ -19,6 +23,8 @@ public class PostProcessing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bloom.color.value = Color.Lerp(Color.green, Color.red, Mathf.PingPong(Time.time, 1));
+        float t = Mathf.PingPong(Time.time / strobeDuration, 1f);
+        bloom.color.value = gradient.Evaluate(t);
+        // Color.Lerp(Color.green, Color.red, Mathf.PingPong(Time.time, 1));
     }
 }
