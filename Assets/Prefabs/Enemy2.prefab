@@ -5574,9 +5574,11 @@ MonoBehaviour:
   meleeRange: 0.82
   damage: 2
   explosionDamage: 5
+  aimed: 0
   health: 10
   bulletForce: 5
   notInRoom: 1
+  points: 2
   bulletPrefab: {fileID: 3733137346237469793, guid: 7525ff650cdc5874e8e42030dc9191ed,
     type: 3}
   pc: {fileID: 8412281590272422162}

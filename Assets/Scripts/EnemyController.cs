@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour
 
     public bool notInRoom = true;
 
-    public int point = 1;
+    public int points = 1;
 
     bool firstAttack = true;
 
@@ -243,6 +243,7 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
+        GameController.AddPoints(points);
         pc.enabled = false;
         StartCoroutine(DestroyEnemy());
     }
