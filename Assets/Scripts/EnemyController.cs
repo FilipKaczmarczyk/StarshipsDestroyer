@@ -250,13 +250,13 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
-        GameController.AddPoints(points);
         pc.enabled = false;
         StartCoroutine(DestroyEnemy());
     }
 
     public void Death()
     {
+        GameController.AddPoints(points);
         _explodable.explode();
         ExplosionForce ef = GameObject.FindObjectOfType<ExplosionForce>();
         ef.doExplosion(transform.position);
