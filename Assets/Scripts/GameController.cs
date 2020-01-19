@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameController : MonoBehaviour
     private static int cannonsCount = 1;
     private static int points = 0;
 
+    public TextMeshProUGUI scoreText;
 
     public static float Health { get => health; set => health = value ; }
     public static float MaxHealth { get => maxHealth; set => maxHealth = value; }
@@ -109,6 +111,7 @@ public class GameController : MonoBehaviour
     public static void GameOver()
     {
         instance.KillPlayer();
+        instance.scoreText.SetText("Score\n" + points);
         instance.gameOverPanel.SetActive(true);
     }
 
