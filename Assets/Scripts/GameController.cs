@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-
     public static GameController instance;
 
     protected SpriteRenderer sr;
@@ -18,12 +17,15 @@ public class GameController : MonoBehaviour
     private static float moveSpeed = 5f;
     private static float fireRate = 0.5f;
     private static int cannonsCount = 1;
+    private static int points = 0;
+
 
     public static float Health { get => health; set => health = value ; }
     public static float MaxHealth { get => maxHealth; set => maxHealth = value; }
     public static float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public static float FireRate { get => fireRate; set => fireRate = value; }
     public static int CannonsCount { get => cannonsCount; set => cannonsCount = value; }
+    public static int Points { get => points; set => points = value; }
 
     public Text healthText;
 
@@ -101,6 +103,10 @@ public class GameController : MonoBehaviour
         
     }
 
+    public static void AddPoints(int p)
+    {
+        points += p;
+    }
 
     public static void KillPlayer()
     {
