@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
 
     protected Color dColor;
 
-    private static float health = 10.0f;
+    private static float health = 1.0f;
     private static float maxHealth = 10.0f;
     private static float moveSpeed = 5f;
     private static float fireRate = 0.5f;
