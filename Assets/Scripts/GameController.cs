@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
     private static int points = 0;
 
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText2;
 
     public static float Health { get => health; set => health = value ; }
     public static float MaxHealth { get => maxHealth; set => maxHealth = value; }
@@ -45,6 +46,7 @@ public class GameController : MonoBehaviour
         GameObject go = GameObject.FindWithTag("Player");
         sr = go.GetComponent<SpriteRenderer>();
         dColor = sr.color;
+        instance.scoreText2.SetText(points.ToString());
     }
 
     // Update is called once per frame
@@ -123,6 +125,7 @@ public class GameController : MonoBehaviour
     public static void AddPoints(int p)
     {
         points += p;
+        instance.scoreText2.SetText(points.ToString());
     }
 
     public void RestartGame()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     Vector2 mousePosition;
 
-    public Text level;
+    public TextMeshProUGUI level;
 
     public static int currentLevel = 0;
 
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
         
         mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        level.text = "Level: " + currentLevel;
+        level.text = "STAGE " + currentLevel;
 
         Vector2 lookDirection = mousePosition - rb.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
