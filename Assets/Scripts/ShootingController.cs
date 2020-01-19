@@ -8,12 +8,19 @@ public class ShootingController : MonoBehaviour
 
     public GameObject bulletPrefab;
 
+    AudioSource laserAudioData;
+
     [SerializeField]
     public float bulletForce = 5f;
 
     private float fireRate = 0.5f;
 
     private float nextFire = -1f;
+
+    void Start()
+    {
+        laserAudioData = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -36,6 +43,7 @@ public class ShootingController : MonoBehaviour
 
     void Shoot()
     {
+       laserAudioData.Play(0);
        for(int i = 0; i < GameController.CannonsCount; i++)
        {
             GameObject bullet = Instantiate(bulletPrefab, cannon[i].position, cannon[i].rotation);

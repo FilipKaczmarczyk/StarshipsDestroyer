@@ -43,6 +43,8 @@ public class EnemyController : MonoBehaviour
     public int damage;
     public int explosionDamage = 5;
 
+    public bool aimed = false;
+
     public int health = 10;
 
     public float bulletForce = 5f;
@@ -50,6 +52,8 @@ public class EnemyController : MonoBehaviour
     private bool coolDownAttack = false;
 
     public bool notInRoom = true;
+
+    bool firstAttack = true;
 
     public GameObject bulletPrefab;
 
@@ -109,11 +113,11 @@ public class EnemyController : MonoBehaviour
                 }
                 else if (enemyType == EnemyType.Ranged)
                 {
-                    if (!isPlayerInRange(range))
+                    if (!isPlayerInRange(range) && !aimed) 
                     {
                         currentState = EnemyState.Follow;
                     }
-                    else if (isPlayerInRange(range))
+                    else
                     {
                         currentState = EnemyState.Aim;
                     }
@@ -169,6 +173,7 @@ public class EnemyController : MonoBehaviour
 
     void Aim()
     {
+        aimed = true;
         float rotationSpeed = 10f;
         float offset = -90f;
         Vector3 direction = player.transform.position - transform.position;
@@ -176,7 +181,16 @@ public class EnemyController : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle + offset, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-        Attack();
+        if (!firstAttack)
+        {
+            Attack();
+        }
+        else
+        {
+            StartCoroutine(CoolDown());
+            firstAttack = false;
+        }
+
     }
 
     void Follow()
@@ -194,8 +208,8 @@ public class EnemyController : MonoBehaviour
     void Attack()
     {
         if (!coolDownAttack)
-        {   
-            foreach(Transform cann in cannon)
+        {
+            foreach (Transform cann in cannon)
             {
                 GameObject bullet = Instantiate(bulletPrefab, cann.position, Quaternion.identity) as GameObject;
                 bullet.GetComponent<BulletController>().GetPlayer(player.transform);
@@ -205,13 +219,21 @@ public class EnemyController : MonoBehaviour
                 StartCoroutine(CoolDown());
             }
             laserAudioData.Play(0);
+            aimed = false;
         }
     }
 
     private IEnumerator CoolDown()
     {
         coolDownAttack = true;
-        yield return new WaitForSeconds(coolDown);
+        if (firstAttack)
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(coolDown);
+        }
         coolDownAttack = false;
     }
 
@@ -243,6 +265,10 @@ public class EnemyController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "EnemyPiece")
+        {
+            Physics2D.IgnoreCollision(pc, coll.collider);
+        }
+        else if (coll.gameObject.tag == "Pickup")
         {
             Physics2D.IgnoreCollision(pc, coll.collider);
         }
