@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+	public GameObject creditsPanel;
+	public GameObject mainPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +23,16 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
     	SceneManager.LoadScene("LevelMain");
+    }
+
+    public void QuitGame()
+    {
+    	Application.Quit();
+    }
+
+    public void ShowCredits(bool show)
+    {
+    	mainPanel.SetActive(!show);
+    	creditsPanel.SetActive(show);
     }
 }
