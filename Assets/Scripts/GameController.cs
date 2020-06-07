@@ -53,8 +53,8 @@ public class GameController : MonoBehaviour
     void Update()
     {
         healthText.text = "Health " + health;
-        Debug.Log(fireRate);
-        Debug.Log(CannonsCount); 
+       // Debug.Log(fireRate);
+       // Debug.Log(CannonsCount); 
     }
 
     public static void DamagePlayer(int damage)
@@ -133,6 +133,7 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
+        points = 0;
         health = 10.0f;
         maxHealth = 10.0f;
         moveSpeed = 5f;
@@ -145,6 +146,14 @@ public class GameController : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        points = 0;
+        health = 10.0f;
+        maxHealth = 10.0f;
+        moveSpeed = 5f;
+        fireRate = 0.5f;
+        cannonsCount = 1;
+        PlayerController.currentLevel = 0;
+        DungeonCrawlerController.positionVisited.Clear();
         SceneManager.LoadScene("MainMenu");
     }
 

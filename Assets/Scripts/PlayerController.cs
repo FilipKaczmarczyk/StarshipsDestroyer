@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
 
     public PolygonCollider2D pc;
 
+    void Awake()
+    {
+    }
 
     void Start()
     {

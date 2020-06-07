@@ -220,7 +220,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105693014}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &105693016
 Camera:
   m_ObjectHideFlags: 0
@@ -816,6 +816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadedRooms: []
   camera: {fileID: 105693016}
+  aS: {fileID: 1395264491}
   canvas: {fileID: 522000665}
 --- !u!4 &633421724
 Transform:
@@ -1997,11 +1998,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395264483}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9813bfa0153ee8b40ae1a294049198c5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -2096,6 +2097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1419637382}
   - component: {fileID: 1419637385}
+  - component: {fileID: 1419637383}
   m_Layer: 0
   m_Name: MinimapCamera
   m_TagString: Untagged
@@ -2117,6 +2119,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1419637383
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419637381}
+  m_Enabled: 1
 --- !u!20 &1419637385
 Camera:
   m_ObjectHideFlags: 0
@@ -2895,7 +2905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1816369861
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2903,14 +2913,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816369860}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

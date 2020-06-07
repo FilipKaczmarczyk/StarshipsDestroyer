@@ -35,6 +35,8 @@ public class RoomController : MonoBehaviour
 
     public Camera camera;
 
+    public AudioSource aS;
+
     public GameObject canvas;
 
 
@@ -100,6 +102,7 @@ public class RoomController : MonoBehaviour
 
             canvas.SetActive(true);
             camera.gameObject.SetActive(true);
+            aS.enabled = true;
         }
     }
 
