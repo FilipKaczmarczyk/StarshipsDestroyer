@@ -17,6 +17,8 @@ public class ShootingController : MonoBehaviour
 
     private float nextFire = -1f;
 
+    private bool x = false;
+
     void Start()
     {
         laserAudioData = GetComponent<AudioSource>();
@@ -34,8 +36,16 @@ public class ShootingController : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
-                Shoot();
-                nextFire = fireRate;
+                if (x)
+                {
+                    Shoot();
+                    nextFire = fireRate;
+                }
+                else
+                {
+                    Debug.Log("Cipa");
+                    x = true;
+                }
             }
         }
 
